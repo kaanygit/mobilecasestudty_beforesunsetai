@@ -2,11 +2,19 @@
 
 ## Question 1: If you have all the power in the company, what would you change about this [beforesunset.ai](http://beforesunset.ai) web app? What do you think we can do better? How would you improve BS?
 
-///
+If I had full authority at the company, I have some ideas for changes and improvements I could make to the BeforeSunset AI web application. Firstly, I would work on making the user interface more intuitive and user-friendly. I find that the example Todo application design in the Figma link is a bit complex. Particularly, I believe that developing a more visual interface design would make tasks and projects easier to track and manage. It's important for users to quickly access information and easily perform tasks with a simple and modern design.
+
+For instance, we could add an AI assistant that offers suggestions based on user habits and workflow. This could help users optimize their time management and work more efficiently. I have also tested the mobile application and believe there are many features we could add. I am convinced that the application could be significantly improved.
+
 
 ## Question 2: Give an example of an app that you think offers the best user experience? Why?
 
-///
+In my opinion, an application that exemplifies excellent user experience is Praktika. Praktika is an app that facilitates English learning through AI-powered virtual tutors. It allows users to practice real-world conversations and receive instant feedback.
+
+Why did I choose Praktika? Because it offers personalized study plans with AI avatars. These avatars guide users through their language learning journey and provide opportunities for conversation practice. Avatars tailor lessons based on users' skills and interests. During conversation practice, users receive instant feedback from AI avatars, helping them correct errors and improve pronunciation. This feature makes language learning more engaging and interactive. Users can practice English anytime, anywhere.
+
+I believe the concept of video conversations has been exceptionally implemented with AI, and this experience can be applied in other fields as well. Particularly, I have an idea for creating an AI-powered psychological counseling application. Such an app could make emotional and psychological support more accessible, facilitating counseling services. Applying similar principles in other domains can lead to the development of AI-powered solutions.
+
 
 # To-do App
 
@@ -38,7 +46,15 @@ This is a simple To-do app built using Flutter and Bloc for state management. Th
 
 ## Screenshots
 
-///
+![Intro Screen](./assets/screenshot/screen1.png)
+![Intro2 Screen](./assets/screenshot/screen2.png)
+![Add Task Screen](./assets/screenshot/screen3.png)
+![Home Screen](./assets/screenshot/screen4.png)
+![Task Details Screen](./assets/screenshot/screen5.png)
+![Menu Screen](./assets/screenshot/screen6.png)
+
+
+
 
 ## Installation
 
@@ -76,8 +92,10 @@ You can find the code and more details in the [GitHub repository](https://github
   - image_picker: ^1.1.2
   - calendar_date_picker2: ^1.1.5
   - easy_date_timeline: ^1.1.3
- -  mockito: ^5.4.4
+  -  mockito: ^5.4.4
   - bloc_test: ^9.1.7
+  - flutter_launcher_icons: ^0.13.1
+
 
 ## Dart & Flutter Version
 - Flutter 3.22.2

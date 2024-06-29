@@ -108,7 +108,7 @@ class _IntroScreenState extends State<IntroScreen> {
               SizedBox(height: 20),
               MyButton(
                   text: "Get Started",
-                  buttonColor: Colors.black,
+                  buttonColor: buttonColor,
                   buttonTextColor: Colors.white,
                   buttonTextSize: 20,
                   buttonTextWeight: FontWeight.normal,
@@ -127,70 +127,68 @@ class _IntroScreenState extends State<IntroScreen> {
   }
 
   Widget _buildSecondScreen() {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Stack(
-          children: [
-            Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  CircleAvatar(
-                    radius: 50,
-                    backgroundImage: _image != null
-                        ? FileImage(_image!)
-                        : AssetImage("assets/images/avatar.jpg") as ImageProvider,
-                  ),
-                  SizedBox(height: 20),
-                  GestureDetector(
-                    onTap: _pickImage,
-                    child: Text(
-                      'Tap to select an image',
-                      style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.black,
-                          fontWeight: FontWeight.normal),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  MyTextField(
-                    controller: _usernameController,
-                    hintText: "Username",
-                    obscureText: false,
-                    keyboardType: TextInputType.multiline,
-                    enabled: true,
-                  ),
-                ],
-              ),
-            ),
-            Positioned(
-              bottom: 20,
-              left: 0,
-              right: 0,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: MyButton(
-                  text: "Save",
-                  buttonColor: Colors.black,
-                  buttonTextColor: Colors.white,
-                  buttonTextSize: 20,
-                  buttonTextWeight: FontWeight.normal,
-                  onPressed: () {
-                    if (_usernameController.text.isNotEmpty && _image != null) {
-                      _saveUserInfo();
-                    } else {
-                      showErrorSnackBar(context,
-                          "Please enter a username and select an image.");
-                    }
-                  },
-                  borderRadius: BorderRadius.circular(16),
-                  buttonWidth: ButtonWidth.xxLarge,
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Stack(
+        children: [
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CircleAvatar(
+                  radius: 50,
+                  backgroundImage: _image != null
+                      ? FileImage(_image!)
+                      : AssetImage("assets/images/avatar.jpg") as ImageProvider,
                 ),
+                SizedBox(height: 20),
+                GestureDetector(
+                  onTap: _pickImage,
+                  child: Text(
+                    'Tap to select an image',
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.black,
+                        fontWeight: FontWeight.normal),
+                  ),
+                ),
+                SizedBox(height: 20),
+                MyTextField(
+                  controller: _usernameController,
+                  hintText: "Username",
+                  obscureText: false,
+                  keyboardType: TextInputType.multiline,
+                  enabled: true,
+                ),
+              ],
+            ),
+          ),
+          Positioned(
+            bottom: 20,
+            left: 0,
+            right: 0,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: MyButton(
+                text: "Save",
+                buttonColor: buttonColor,
+                buttonTextColor: Colors.white,
+                buttonTextSize: 20,
+                buttonTextWeight: FontWeight.normal,
+                onPressed: () {
+                  if (_usernameController.text.isNotEmpty && _image != null) {
+                    _saveUserInfo();
+                  } else {
+                    showErrorSnackBar(context,
+                        "Please enter a username and select an image.");
+                  }
+                },
+                borderRadius: BorderRadius.circular(16),
+                buttonWidth: ButtonWidth.xxLarge,
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

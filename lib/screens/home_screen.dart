@@ -88,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: EasyDateTimeLine(
               dayProps: const EasyDayProps(
                 todayHighlightStyle: TodayHighlightStyle.withBackground,
-                todayHighlightColor: Colors.grey,
+                // todayHighlightColor: Colors.grey,
               ),
               initialDate: DateTime.now(),
               onDateChange: (date) {
@@ -282,45 +282,15 @@ class _HomeScreenState extends State<HomeScreen> {
                       ...completedTasks.map((task) {
                         return Dismissible(
                           key: Key(task.id),
-                          direction: DismissDirection.horizontal,
+                          direction: DismissDirection
+                              .endToStart, // Sadece sağdan sola kaydırma
                           background: Container(
-                            color: Colors.green,
-                            alignment: Alignment.centerLeft,
-                            child: Icon(Icons.check, color: Colors.white),
-                          ),
-                          secondaryBackground: Container(
                             color: Colors.red,
                             alignment: Alignment.centerRight,
                             child: Icon(Icons.delete, color: Colors.white),
                           ),
                           confirmDismiss: (direction) async {
-                            if (direction == DismissDirection.startToEnd) {
-                              return await showDialog(
-                                context: context,
-                                builder: (context) => AlertDialog(
-                                  title: Text('Complete Task?'),
-                                  content: Text(
-                                      'Are you sure you want to mark this task as completed?'),
-                                  actions: [
-                                    TextButton(
-                                      onPressed: () =>
-                                          Navigator.of(context).pop(false),
-                                      child: Text('Cancel'),
-                                    ),
-                                    TextButton(
-                                      onPressed: () {
-                                        context
-                                            .read<TaskBloc>()
-                                            .add(ToggleTask(task.id));
-                                        Navigator.of(context).pop(true);
-                                      },
-                                      child: Text('Complete'),
-                                    ),
-                                  ],
-                                ),
-                              );
-                            } else if (direction ==
-                                DismissDirection.endToStart) {
+                            if (direction == DismissDirection.endToStart) {
                               return await showDialog(
                                 context: context,
                                 builder: (context) => AlertDialog(
@@ -443,7 +413,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       endDrawer: Drawer(
-        backgroundColor: backgroundColor,
+        backgroundColor: backgroundColor3,
         child: ListView(
           padding: EdgeInsets.all(16),
           children: [
@@ -486,7 +456,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   context: context,
                   builder: (BuildContext context) {
                     return AlertDialog(
-                      backgroundColor: backgroundColor,
+                      backgroundColor: backgroundColor3,
                       title: Text(
                         "Update User Data?",
                         style: fontStyle(20, Colors.black, FontWeight.bold),
@@ -577,7 +547,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   context: context,
                   builder: (BuildContext context) {
                     return AlertDialog(
-                      backgroundColor: backgroundColor,
+                      backgroundColor: backgroundColor3,
                       title: Text(
                         "Delete User Data?",
                         style: fontStyle(20, Colors.black, FontWeight.bold),

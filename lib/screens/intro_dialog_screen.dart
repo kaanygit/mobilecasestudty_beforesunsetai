@@ -47,8 +47,15 @@ class _IntroDialogState extends State<IntroDialog> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(child:Image.asset("assets/images/avatar.jpg",width:200,height: 200,)),
-                      SizedBox(height: 20,),
+                      Container(
+                          child: Image.asset(
+                        "assets/images/undraw_reminders.png",
+                        width: 200,
+                        height: 200,
+                      )),
+                      SizedBox(
+                        height: 20,
+                      ),
                       Text(
                         'Welcome to the App',
                         style: fontStyle(24, Colors.black, FontWeight.bold),
@@ -57,7 +64,6 @@ class _IntroDialogState extends State<IntroDialog> {
                       Text(
                         'This app helps you manage your tasks efficiently.',
                         style: fontStyle(13, Colors.black, FontWeight.normal),
-
                         textAlign: TextAlign.center,
                       ),
                     ],
@@ -67,18 +73,32 @@ class _IntroDialogState extends State<IntroDialog> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(child:Image.asset("assets/images/avatar.jpg",width:200,height: 200,)),
-                      SizedBox(height: 20,),
+                      Container(
+                          child: Image.asset(
+                        "assets/images/Screenshot 2024-06-29 190843.png",
+                        width: 200,
+                        height: 200,
+                      )),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                          child: Image.asset(
+                        "assets/images/Screenshot 2024-06-29 190830.png",
+                        width: 200,
+                        height: 200,
+                      )),
+                      SizedBox(
+                        height: 20,
+                      ),
                       Text(
                         'Add and Complete Tasks',
                         style: fontStyle(24, Colors.black, FontWeight.bold),
-
                       ),
                       SizedBox(height: 20),
                       Text(
                         'Swipe right to complete a task or left to delete it.',
-                                                style: fontStyle(13, Colors.black, FontWeight.normal),
-
+                        style: fontStyle(13, Colors.black, FontWeight.normal),
                         textAlign: TextAlign.center,
                       ),
                     ],
@@ -88,20 +108,35 @@ class _IntroDialogState extends State<IntroDialog> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      Container(
+                          child: Image.asset(
+                        "assets/images/undraw_my_notifications.png",
+                        width: 200,
+                        height: 200,
+                      )),
+                      SizedBox(
+                        height: 20,
+                      ),
                       Text(
                         'Get Started Now',
-                          style: fontStyle(24, Colors.black, FontWeight.bold),
-
+                        style: fontStyle(24, Colors.black, FontWeight.bold),
                       ),
                       SizedBox(height: 20),
-                      Spacer(),
-                      MyButton(text: "Start", buttonColor: buttonColor, buttonTextColor: Colors.white, buttonTextSize: 20, buttonTextWeight: FontWeight.bold, onPressed: () async {
+                      MyButton(
+                        text: "Start",
+                        buttonColor: buttonColor,
+                        buttonTextColor: Colors.white,
+                        buttonTextSize: 20,
+                        buttonTextWeight: FontWeight.bold,
+                        onPressed: () async {
                           final prefs = await SharedPreferences.getInstance();
                           await prefs.setBool('isFirstTime', false);
                           await Navigator.of(context)
                               .pushReplacementNamed('/home');
-                        }, buttonWidth: ButtonWidth.large,borderRadius: BorderRadius.circular(16),),
-                      
+                        },
+                        buttonWidth: ButtonWidth.xxLarge,
+                        borderRadius: BorderRadius.circular(16),
+                      ),
                     ],
                   ),
                 ),
