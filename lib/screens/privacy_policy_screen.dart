@@ -13,14 +13,14 @@ class _PrivacyPolicyScreenState extends State<PrivacyPolicyScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: backgroundColor,
+        backgroundColor: backgroundColor3,
         title: Text('Privacy Policy'),
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios_new),
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
-      backgroundColor: backgroundColor,
+      backgroundColor: backgroundColor3,
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(20.0),

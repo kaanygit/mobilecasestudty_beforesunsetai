@@ -68,7 +68,7 @@ class _IntroScreenState extends State<IntroScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColor,
+      backgroundColor: backgroundColor3,
       body: _isLoading
           ? Center(
               child: CircularProgressIndicator(),
@@ -81,112 +81,116 @@ class _IntroScreenState extends State<IntroScreen> {
 
   Widget _buildFirstScreen() {
     return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              child: Image.asset(
-                "assets/images/Saly-191.png",
-                width: 400,
-                height: 400,
+      child: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                child: Image.asset(
+                  "assets/images/Saly-191.png",
+                  width: 350,
+                  height: 350,
+                ),
               ),
-            ),
-            SizedBox(height: 20),
-            Text(
-              'Daily Task List',
-              style: fontStyle(24, Colors.black, FontWeight.bold),
-            ),
-            SizedBox(height: 20),
-            Text(
-              'Organise all your to-do’s andlist your projects. Color tag them to set priority and categories',
-              style: fontStyle(18, Colors.black, FontWeight.normal),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 20),
-            MyButton(
-                text: "Get Started",
-                buttonColor: Colors.black,
-                buttonTextColor: Colors.white,
-                buttonTextSize: 20,
-                buttonTextWeight: FontWeight.normal,
-                onPressed: () {
-                  setState(() {
-                    _isFirstScreen = false;
-                  });
-                },
-                borderRadius: BorderRadius.circular(8),
-                buttonWidth: ButtonWidth.xLarge)
-          ],
+              SizedBox(height: 20),
+              Text(
+                'Daily Task List',
+                style: fontStyle(24, Colors.black, FontWeight.bold),
+              ),
+              SizedBox(height: 20),
+              Text(
+                'Organise all your to-do’s andlist your projects. Color tag them to set priority and categories',
+                style: fontStyle(18, Colors.black, FontWeight.normal),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: 20),
+              MyButton(
+                  text: "Get Started",
+                  buttonColor: Colors.black,
+                  buttonTextColor: Colors.white,
+                  buttonTextSize: 20,
+                  buttonTextWeight: FontWeight.normal,
+                  onPressed: () {
+                    setState(() {
+                      _isFirstScreen = false;
+                    });
+                  },
+                  borderRadius: BorderRadius.circular(8),
+                  buttonWidth: ButtonWidth.xLarge)
+            ],
+          ),
         ),
       ),
     );
   }
 
   Widget _buildSecondScreen() {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Stack(
-        children: [
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CircleAvatar(
-                  radius: 50,
-                  backgroundImage: _image != null
-                      ? FileImage(_image!)
-                      : AssetImage("assets/images/avatar.jpg") as ImageProvider,
-                ),
-                SizedBox(height: 20),
-                GestureDetector(
-                  onTap: _pickImage,
-                  child: Text(
-                    'Tap to select an image',
-                    style: TextStyle(
-                        fontSize: 18,
-                        color: Colors.black,
-                        fontWeight: FontWeight.normal),
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Stack(
+          children: [
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CircleAvatar(
+                    radius: 50,
+                    backgroundImage: _image != null
+                        ? FileImage(_image!)
+                        : AssetImage("assets/images/avatar.jpg") as ImageProvider,
                   ),
-                ),
-                SizedBox(height: 20),
-                MyTextField(
-                  controller: _usernameController,
-                  hintText: "Username",
-                  obscureText: false,
-                  keyboardType: TextInputType.multiline,
-                  enabled: true,
-                ),
-              ],
-            ),
-          ),
-          Positioned(
-            bottom: 20,
-            left: 0,
-            right: 0,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: MyButton(
-                text: "Save",
-                buttonColor: Colors.black,
-                buttonTextColor: Colors.white,
-                buttonTextSize: 20,
-                buttonTextWeight: FontWeight.normal,
-                onPressed: () {
-                  if (_usernameController.text.isNotEmpty && _image != null) {
-                    _saveUserInfo();
-                  } else {
-                    showErrorSnackBar(context,
-                        "Please enter a username and select an image.");
-                  }
-                },
-                borderRadius: BorderRadius.circular(16),
-                buttonWidth: ButtonWidth.xxLarge,
+                  SizedBox(height: 20),
+                  GestureDetector(
+                    onTap: _pickImage,
+                    child: Text(
+                      'Tap to select an image',
+                      style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.black,
+                          fontWeight: FontWeight.normal),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  MyTextField(
+                    controller: _usernameController,
+                    hintText: "Username",
+                    obscureText: false,
+                    keyboardType: TextInputType.multiline,
+                    enabled: true,
+                  ),
+                ],
               ),
             ),
-          ),
-        ],
+            Positioned(
+              bottom: 20,
+              left: 0,
+              right: 0,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: MyButton(
+                  text: "Save",
+                  buttonColor: Colors.black,
+                  buttonTextColor: Colors.white,
+                  buttonTextSize: 20,
+                  buttonTextWeight: FontWeight.normal,
+                  onPressed: () {
+                    if (_usernameController.text.isNotEmpty && _image != null) {
+                      _saveUserInfo();
+                    } else {
+                      showErrorSnackBar(context,
+                          "Please enter a username and select an image.");
+                    }
+                  },
+                  borderRadius: BorderRadius.circular(16),
+                  buttonWidth: ButtonWidth.xxLarge,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

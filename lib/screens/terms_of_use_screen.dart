@@ -13,7 +13,7 @@ class _TermsOfUseScreenState extends State<TermsOfUseScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: backgroundColor,
+        backgroundColor: backgroundColor3,
         title: Text('Terms of Use'),
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios_new),
@@ -22,7 +22,7 @@ class _TermsOfUseScreenState extends State<TermsOfUseScreen> {
           },
         ),
       ),
-      backgroundColor: backgroundColor,
+      backgroundColor: backgroundColor3,
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(20.0),

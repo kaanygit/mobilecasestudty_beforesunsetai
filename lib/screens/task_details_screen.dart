@@ -148,7 +148,7 @@ class _TaskDetailsScreenState extends State<TaskDetailsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: backgroundColor,
+        backgroundColor: backgroundColor3,
         title: Text('Task Details'),
         actions: [
           IconButton(
@@ -163,7 +163,7 @@ class _TaskDetailsScreenState extends State<TaskDetailsScreen> {
           ),
         ],
       ),
-      backgroundColor: backgroundColor,
+      backgroundColor: backgroundColor3,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),

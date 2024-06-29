@@ -50,7 +50,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: backgroundColor,
+        backgroundColor: backgroundColor3,
         title: Text(
           'Add Task',
           style: fontStyle(22, Colors.black, FontWeight.normal),
@@ -60,7 +60,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
-      backgroundColor: backgroundColor,
+      backgroundColor: backgroundColor3,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(

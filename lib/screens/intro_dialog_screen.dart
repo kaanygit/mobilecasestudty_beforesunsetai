@@ -1,4 +1,6 @@
 import 'package:beforesunsetai_mobile_case_study/constant/colors.dart';
+import 'package:beforesunsetai_mobile_case_study/constant/fonts.dart';
+import 'package:beforesunsetai_mobile_case_study/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -36,7 +38,7 @@ class _IntroDialogState extends State<IntroDialog> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColor,
+      backgroundColor: backgroundColor3,
       body: isLoading
           ? Center(child: CircularProgressIndicator())
           : PageView(
@@ -45,16 +47,17 @@ class _IntroDialogState extends State<IntroDialog> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      Container(child:Image.asset("assets/images/avatar.jpg",width:200,height: 200,)),
+                      SizedBox(height: 20,),
                       Text(
                         'Welcome to the App',
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: fontStyle(24, Colors.black, FontWeight.bold),
                       ),
                       SizedBox(height: 20),
                       Text(
                         'This app helps you manage your tasks efficiently.',
+                        style: fontStyle(13, Colors.black, FontWeight.normal),
+
                         textAlign: TextAlign.center,
                       ),
                     ],
@@ -64,16 +67,18 @@ class _IntroDialogState extends State<IntroDialog> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      Container(child:Image.asset("assets/images/avatar.jpg",width:200,height: 200,)),
+                      SizedBox(height: 20,),
                       Text(
                         'Add and Complete Tasks',
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: fontStyle(24, Colors.black, FontWeight.bold),
+
                       ),
                       SizedBox(height: 20),
                       Text(
                         'Swipe right to complete a task or left to delete it.',
+                                                style: fontStyle(13, Colors.black, FontWeight.normal),
+
                         textAlign: TextAlign.center,
                       ),
                     ],
@@ -85,21 +90,18 @@ class _IntroDialogState extends State<IntroDialog> {
                     children: [
                       Text(
                         'Get Started Now',
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                        ),
+                          style: fontStyle(24, Colors.black, FontWeight.bold),
+
                       ),
                       SizedBox(height: 20),
-                      ElevatedButton(
-                        onPressed: () async {
+                      Spacer(),
+                      MyButton(text: "Start", buttonColor: buttonColor, buttonTextColor: Colors.white, buttonTextSize: 20, buttonTextWeight: FontWeight.bold, onPressed: () async {
                           final prefs = await SharedPreferences.getInstance();
                           await prefs.setBool('isFirstTime', false);
                           await Navigator.of(context)
                               .pushReplacementNamed('/home');
-                        },
-                        child: Text('Start'),
-                      ),
+                        }, buttonWidth: ButtonWidth.large,borderRadius: BorderRadius.circular(16),),
+                      
                     ],
                   ),
                 ),
